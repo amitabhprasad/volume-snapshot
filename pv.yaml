@@ -1,0 +1,16 @@
+---
+# Create persistentce volume by reading contents from volume 
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pvc002-pv
+spec:
+  storageClassName: gp2-csi
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  persistentVolumeReclaimPolicy: Delete
+  awsElasticBlockStore:
+    fsType: ext4
+    volumeID: aws://eu-west-1/vol-01b60b45e5b6e9511
