@@ -1,0 +1,13 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotContent
+metadata:
+  name: manually-created-snapshot-content
+spec:
+  deletionPolicy: Delete
+  driver: ebs.csi.aws.com
+  source:
+    snapshotHandle: snap-09c445c9ad7022d15
+  volumeSnapshotClassName: csi-aws-vsc
+  volumeSnapshotRef:
+    name: my-snapshot-content
+    namespace: csi-app
